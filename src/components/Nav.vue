@@ -1,5 +1,5 @@
 <template lang='jade'>
-Menu(mode='horizontal' theme='light' active-name='1' class='navbar')
+Menu(mode='horizontal' theme='light' active-name='1' class='navbar').tc
   div(class='logo')
     p 这是logo
   router-link(to='/home')
@@ -19,16 +19,33 @@ Menu(mode='horizontal' theme='light' active-name='1' class='navbar')
       Icon(type='ios-people')
       商家入驻
   div(class='login')
-    a 登录
-    a 注册
+    a(@click='showLoginModal') 登录
+    a(@click='showRegistModal') 注册
+  Login
+  Regist
 </template>
 
 <script>
+import Login from './Modal/Login'
+import Regist from './Modal/Regist'
 export default {
   name: 'nav',
   data () {
     return {
       myTheme: 'light'
+    }
+  },
+  components: {
+    Login,
+    Regist
+  },
+  methods: {
+    showLoginModal () {
+      this.$store.commit('toggleLogin')
+    },
+    showRegistModal () {
+      console.log('hhh')
+      this.$store.commit('toggleRegist')
     }
   }
 }

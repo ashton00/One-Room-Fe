@@ -31,7 +31,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 
 //原子类
@@ -49,6 +48,10 @@ export default {
 .fr
   float: right
 
+@for $i from 12 through 30
+  .fs-#{$i}
+    font-size: $i + px
+    
 @for $i from 1 through 20
   .p-#{5*$i}
     padding: (5 * $i) + px

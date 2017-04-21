@@ -1,5 +1,5 @@
 <template lang='jade'>
-div.home
+div.home.tc
   div.main
     RightBar
     div.pt-80.pb-100
