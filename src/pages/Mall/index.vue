@@ -1,5 +1,5 @@
 <template lang='jade'>
-  #Shopping.p-40
+  #Mall.p-40
     .filter
       Input.fr(placeholder='搜索')
       Breadcrumb(separator='>')
@@ -19,7 +19,7 @@
       Row(:gutter='20')
         Col.mt-20(:xs='12', :sm='8', :md='6', :lg='6' v-for='item in search_result', :key='item.id')
           router-link(to='/detail') 
-            img(src='../assets/placehold.png')
+            img(src='../../assets/placehold.png')
             p.mt-10 {{item.name}}
             p.mt-10 {{item.price}}
     .tc
@@ -28,43 +28,43 @@
 
 <script>
 export default {
-  name: 'Shopping',
+  name: 'Mall',
   data () {
     return {
       search_result: [{
         id: 0,
         name: '简约现代松木床',
-        imgsrc: '../assets/placehold.png',
+        imgsrc: '../../assets/placehold.png',
         price: '¥ 12.00/月 起'
       }, {
         id: 1,
         name: '简约现代松木床',
-        imgsrc: '../assets/placehold.png',
+        imgsrc: '../../assets/placehold.png',
         price: '¥ 12.00/月 起'
       }, {
         id: 2,
         name: '简约现代松木床',
-        imgsrc: '../assets/placehold.png',
+        imgsrc: '../../assets/placehold.png',
         price: '¥ 12.00/月 起'
       }, {
         id: 3,
         name: '简约现代松木床',
-        imgsrc: '../assets/placehold.png',
+        imgsrc: '../../assets/placehold.png',
         price: '¥ 12.00/月 起'
       }, {
         id: 4,
         name: '简约现代松木床',
-        imgsrc: '../assets/placehold.png',
+        imgsrc: '../../assets/placehold.png',
         price: '¥ 12.00/月 起'
       }, {
         id: 5,
         name: '简约现代松木床',
-        imgsrc: '../assets/placehold.png',
+        imgsrc: '../../assets/placehold.png',
         price: '¥ 12.00/月 起'
       }, {
         id: 6,
         name: '简约现代松木床',
-        imgsrc: '../assets/placehold.png',
+        imgsrc: '../../assets/placehold.png',
         price: '¥ 12.00/月 起'
       }],
       classes: [{
@@ -91,7 +91,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-#Shopping
+#Mall
   .filter
     .ivu-input-wrapper
       width: 300px

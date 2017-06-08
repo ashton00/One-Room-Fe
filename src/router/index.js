@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Hello from '@/components/Hello'
-import Changepwd from '../components/ChangePwd.vue'
-import Home from '../components/Home.vue'
-import Shopping from '../components/Shopping.vue'
-import Detail from '../components/Detail.vue'
-import Cart from '../components/Cart.vue'
-import Payment from '../components/Payment.vue'
+import Home from '../pages/Home/index.vue'
+import Mall from '../pages/Mall/index.vue'
+import Detail from '../pages/Mall/pages/Detail.vue'
+import Payment from '../pages/Payment/index.vue'
+
+import Changepwd from '../pages/ChangePwd.vue'
+import Cart from '../pages/Cart.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -23,9 +24,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/shopping',
-      name: 'shopping',
-      component: Shopping
+      path: '/mall',
+      name: 'mall',
+      component: Mall
     },
     {
       path: '/cart',

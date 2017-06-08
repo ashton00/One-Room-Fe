@@ -7,7 +7,7 @@
       Option(v-for='item in cityList', :value='item.value', :key='item') {{ item.label }}
     Input.mt-20(v-model='address', placehold  er='请输入详细地址', type='textarea')
   modal(v-model='showWeChat')
-    img.fl.mr-20(src='../assets/二维码.png')
+    img.fl.mr-20(src='../../assets/二维码.png')
     p.fs-20 微信支付说明
     p.mt-20 1.下单后尽快支付，以免被他人租用，影响您的使用。
     p.mt-15 2.付款金额包含押金、租金和运费。押金将在退租后返还至支付账号。
@@ -29,7 +29,7 @@
         p 18888888888
         p 广东省广州市番禺区至善园九号天台828
       .newAddress(@click='showmodal = true')
-        img.mr-5(src='../assets/add.png')
+        img.mr-5(src='../../assets/add.png')
         | 新增收货地址
       h2.title 配送时间
         
@@ -42,8 +42,8 @@
         p 联系电话：18819253618
         p 联系地址：广东省广州市番禺区至善园九号天台828
         p 配送时间：04月07日（周五）9:00-14:00，15:00-18:00，04月08日（周六）9:00-14:00
-      img.ml-40.mt-70(src='../assets/微信.png', @click='showWeChat = true')
-      img.ml-50(src='../assets/支付宝.png')
+      img.ml-40.mt-70(src='../../assets/微信.png', @click='showWeChat = true')
+      img.ml-50(src='../../assets/支付宝.png')
     div(v-if='current==2') 等待配送
   
 
@@ -119,7 +119,7 @@ export default {
     cursor: pointer
     &.active
       border: 1px solid #b9c088
-      background: url(../assets/activeAddr.png) no-repeat top right
+      background: url(../../assets/activeAddr.png) no-repeat top right
   .newAddress
     height: 120px
     display: inline-block

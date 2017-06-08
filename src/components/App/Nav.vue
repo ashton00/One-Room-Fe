@@ -6,7 +6,7 @@ Menu(mode='horizontal' theme='light' active-name='1' class='navbar').tc
     Menu-item(name='1')
       Icon(type='ios-paper')
       | 首页
-  router-link(to='/shopping')    
+  router-link(to='/mall')    
     Menu-item(name='2')    
       Icon(type='ios-people')
       | 家具商城

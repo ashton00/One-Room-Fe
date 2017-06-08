@@ -5,14 +5,12 @@
 
 import Vuex from 'vuex'
 import Vue from 'vue'
-import content from './modules/content'
 import modal from './modules/modal'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-    content: content,
     modal: modal
   }
 })

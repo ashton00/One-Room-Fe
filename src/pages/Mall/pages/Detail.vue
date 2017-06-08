@@ -7,11 +7,11 @@
       Breadcrumb-item 当前家具详情页
     .container.pt-70.tc
       .left
-        img(src='../assets/placehold.png')
+        img(src='../../../assets/placehold.png')
       .mid.ml-40
-        img(src='../assets/placehold.png')
-        img(src='../assets/placehold.png')
-        img(src='../assets/placehold.png')
+        img(src='../../../assets/placehold.png')
+        img(src='../../../assets/placehold.png')
+        img(src='../../../assets/placehold.png')
       .right.ml-40.tl
         div
           p.bold 款式
@@ -46,7 +46,7 @@
     Tabs(value='name1')
       Tab-pane(label='家具详情', name='detail') 家具详情
       Tab-pane(label='收费规则', name='rule')
-        img.mt-20(src='../assets/chargingRules.png' width='100%')
+        img.mt-20(src='../../../assets/chargingRules.png' width='100%')
       Tab-pane(label='家具评价', name='comment')
         h2
           | 好评率
@@ -61,7 +61,7 @@
         ul.disc
           li.p-15
             .user.fl
-              img(src='../assets/placehold.png')
+              img(src='../../../assets/placehold.png')
               p.tc username
             .star.ml-80
               | *****
@@ -71,7 +71,7 @@
               | 2017-6-3 18:39
           li.p-15
             .user.fl
-              img(src='../assets/placehold.png')
+              img(src='../../../assets/placehold.png')
               p.tc username
             .star.ml-80
               | *****

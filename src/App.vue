@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Navbar from './components/Nav'
-import Foot from './components/Footer'
+import Navbar from './components/App/Nav'
+import Foot from './components/App/Footer'
 export default {
   data () {
     return {
