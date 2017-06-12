@@ -75,7 +75,7 @@ div.home.tc
 </template>
 
 <script>
-import RightBar from './components/RightBar'
+import RightBar from '@/components/App/RightBar'
 export default {
   name: 'home',
   data () {
