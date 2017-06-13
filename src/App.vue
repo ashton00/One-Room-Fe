@@ -1,26 +1,42 @@
 <template>
   <div id="app">
-    <!-- <Navbar></Navbar> -->
+    <Navbar v-if="isNotHome"></Navbar>
     <div class='main-content'>
       <router-view></router-view>
     </div>
     <Foot></Foot>
+    <RightBar></RightBar>
   </div>
 </template>
 
 <script>
 import Navbar from './components/App/Nav'
 import Foot from './components/App/Footer'
+import RightBar from '@/components/App/RightBar'
+
 export default {
+  name: 'app',
   data () {
     return {
-      radio: true
+      radio: true,
+      isNotHome: true
     }
   },
-  name: 'app',
+  created () {
+    this.checkHome()
+  },
+  methods: {
+    checkHome () {
+      this.isNotHome = !(this.$route.name === 'home')
+    }
+  },
   components: {
-    Navbar,
-    Foot
+    Navbar, Foot, RightBar
+  },
+  watch: {
+    '$route' (to, from) {
+      this.checkHome()
+    }
   }
 }
 </script>
