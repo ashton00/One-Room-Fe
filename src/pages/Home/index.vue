@@ -24,9 +24,14 @@
         Login
         Regist
 
-    .bg-container
+    .content
       img.bg(src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497358555057&di=8481cdbcd6677dd7c6bc2128a4b41afd&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F13%2F60%2F10%2F58j58PICxWR_1024.jpg")
       .bg-cover
+      .search-bar
+        .search
+          Input.input(v-model='keyword', placeholder="请输入...", size="large")
+          Button.item(type='primary', icon='ios-search', size="large") 搜索
+
   //- div.home.tc
   //-   div.main
   //-     RightBar
@@ -187,7 +192,7 @@ export default {
         &:hover
           text-decoration: underline
           cursor: pointer
-  .bg-container
+  .content
     position: relative
     .bg
       width: 100%
@@ -200,7 +205,19 @@ export default {
       left: 0px
       top: 0px
       background: rgba(0, 0, 0, 0.3)
-      z-index: 100
+    .search-bar
+      color: white
+      position: absolute
+      top: 300px
+      width: 100%
+      .search
+        text-align: center
+        .input
+          width: 300px
+          margin-right: 10px
+        .item
+          display: inline-block
+
 // .title
 //   border: 2px solid #d7d3d3
 // .home
