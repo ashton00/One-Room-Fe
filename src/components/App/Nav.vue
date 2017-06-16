@@ -1,7 +1,6 @@
 <template lang='jade'>
 Menu(mode='horizontal' theme='light' active-name='1' class='navbar').tc
-  div(class='logo')
-    p 这是logo
+  .logo 一室LOGO
   button(v-for="(bar, index) in barList",
   :key="index", @click="changeUrl(bar, index)", :class="{'active': $route.path == bar.url }") {{ bar.title }}
 
@@ -73,6 +72,8 @@ h2
 
 .logo
   float: left
+  color: #F1BD5B
+  font-size: 20px
 
 .login
   float: right

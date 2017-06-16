@@ -1,6 +1,6 @@
 <template lang='jade'>
   .home
-    .navigation
+    .navigation(:class="whitenav ? 'navigation--white' : ''")
       .logo 一室LOGO
       .menus
         router-link.menu-item(to="/home") 首页
@@ -31,8 +31,78 @@
       .bg-cover
       .search-bar
         .search
-          input.input(v-model='keyword', placeholder="请输入...", size="large")
+          input.input(v-model='keyword', placeholder="请输入...")
           .button(type='primary', icon='ios-search', size="large") 搜索
+    .body
+      .section
+        .title
+          .name 家具分类
+        .body
+          .good-container
+            .good
+              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
+              .info
+                .name Kindle官方旗舰店Kindle Paperwhite3亚马逊电子书阅读器电纸书
+                .price ¥ 958.0
+          .good-container
+            .good
+              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
+              .info
+                .name Kindle官方旗舰店Kindle 
+                .price ¥ 958.0
+          .good-container
+            .good
+              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
+              .info
+                .name Kindle官方旗舰店Kindle 
+                .price ¥ 958.0
+          .good-container
+            .good
+              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
+              .info
+                .name Kindle官方旗舰店Kindle 
+                .price ¥ 958.0
+          .good-container
+            .good
+              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
+              .info
+                .name Kindle官方旗舰店Kindle Paperwhite3亚马逊电子书阅读器电纸书
+                .price ¥ 958.0
+      .section
+        .title
+          .name 热门推荐
+        .body
+          .good-container
+            .good
+              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
+              .info
+                .name Kindle官方旗舰店Kindle Paperwhite3亚马逊电子书阅读器电纸书
+                .price ¥ 958.0
+          .good-container
+            .good
+              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
+              .info
+                .name Kindle官方旗舰店Kindle 
+                .price ¥ 958.0
+          .good-container
+            .good
+              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
+              .info
+                .name Kindle官方旗舰店Kindle 
+                .price ¥ 958.0
+          .good-container
+            .good
+              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
+              .info
+                .name Kindle官方旗舰店Kindle 
+                .price ¥ 958.0
+          .good-container
+            .good
+              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
+              .info
+                .name Kindle官方旗舰店Kindle Paperwhite3亚马逊电子书阅读器电纸书
+                .price ¥ 958.0
+
 
   //- div.home.tc
   //-   div.main
@@ -118,8 +188,17 @@ export default {
   data () {
     return {
       keyword: '',
-      value1: 1
+      value1: 1,
+      whitenav: true
     }
+  },
+  created () {
+    window.onscroll = (e) => {
+      this.whitenav = document.body.scrollTop > 200
+    }
+  },
+  beforeDestroy () {
+    window.onscroll = null
   },
   methods: {
     showLoginModal () {
@@ -139,6 +218,7 @@ export default {
 <style lang="sass" scoped>
 .home
   .navigation
+    min-width: 1200px
     position: fixed
     top: 0px
     left: 0px
@@ -189,7 +269,6 @@ export default {
           background: rgba(0, 0, 0, 0.4)
           .sub-menus
             display: block
-
     .operations
       float: right
       .op-item
@@ -200,6 +279,17 @@ export default {
         &:hover
           text-decoration: underline
           cursor: pointer
+  .navigation--white
+    background: #F1BD5B
+    .logo
+      color: white
+    .menus
+      .menu-item
+        .sub-menus
+          .sub-menu
+            background: rgba(241, 189, 91, 0.9)
+            &:hover
+              background: rgba(241, 189, 91, 0.8)
   .content
     position: relative
     .bg
@@ -229,6 +319,7 @@ export default {
           outline: none
           border: none
           border-radius: 4px 0px 0px 4px
+          border: 2px solid #F1BD5B
         .button
           display: inline-block
           font-size: 16px
@@ -244,6 +335,82 @@ export default {
             background: #E8BA64
           &:active
             background: #F1BD5B
+  .section
+    background: #F5F5F5
+    padding: 20px 10px 10px 10px
+    &:first-child
+      padding: 40px 10px 10px 10px
+    .title
+      text-align: center
+      .name
+        display: inline-block
+        font-size: 18px
+        line-height: 20px
+        color: #666
+        position: relative
+        &::after
+          content: ''
+          display: block
+          position: absolute
+          width: 40px
+          height: 1px
+          background: #777
+          left: -60px
+          top: 50%
+          margin-top: -0.5px
+        &::before
+          content: ''
+          display: block
+          position: absolute
+          width: 40px
+          height: 1px
+          background: #777
+          right: -60px
+          top: 50%
+          margin-top: -0.5px
+
+    .body
+      margin: 10px 0px
+      .good-container
+        width: 20%
+        min-width: 230px
+        padding-right: 10px
+        padding-top: 10px
+        box-sizing: border-box
+        display: inline-block
+        .good
+          background: #fff
+          box-sizing: border-box
+          position: relative
+          .pic
+            width: 100%
+            height: 225px
+          .info
+            padding: 10px 20px
+            .name
+              overflow: hidden
+              text-overflow: ellipsis
+              white-space: nowrap
+              color: #666
+              font-size: 13px
+            .price
+              color: #ff0036
+              font-size: 14px
+              line-height: 32px
+          &:hover
+            outline: 1px solid #F1BD5B
+            cursor: pointer
+            .info
+              &::after
+                position: absolute
+                top: 0px
+                left: 0px
+                display: block
+                background: rgba(255, 255, 255, 0.1)
+                content: ''
+                height: 225px
+                width: 250px
+                z-index: 10
 
 
 // .title
