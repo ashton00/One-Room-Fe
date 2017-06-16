@@ -2,22 +2,9 @@
 Menu(mode='horizontal' theme='light' active-name='1' class='navbar').tc
   div(class='logo')
     p 这是logo
-  router-link(to='/home')
-    Menu-item(name='1')
-      Icon(type='ios-paper')
-      | 首页
-  router-link(to='/mall')    
-    Menu-item(name='2')    
-      Icon(type='ios-people')
-      | 家具商城
-  router-link(to='/help')    
-    Menu-item(name='3')    
-      Icon(type='ios-people')
-      | 帮助中心
-  router-link(to='/business')
-    Menu-item(name='4')    
-      Icon(type='ios-people')
-      | 商家入驻
+  button(v-for="(bar, index) in barList",
+  :key="index", @click="changeUrl(bar, index)", :class="{'active': $route.path == bar.url }") {{ bar.title }}
+
   div(class='login')
     a(@click='showLoginModal') 登录
     a(@click='showRegistModal') 注册
@@ -32,7 +19,20 @@ export default {
   name: 'nav',
   data () {
     return {
-      myTheme: 'light'
+      myTheme: 'light',
+      barList: [{
+        title: '首页',
+        url: '/home'
+      }, {
+        title: '家具商城',
+        url: '/mall'
+      }, {
+        title: '帮助中心',
+        url: '/help'
+      }, {
+        title: '商家入驻',
+        url: '/business'
+      }]
     }
   },
   components: {
@@ -40,12 +40,20 @@ export default {
     Regist
   },
   methods: {
+    changeUrl (bar, index) {
+      this.$router.push(bar.url)
+    },
     showLoginModal () {
       this.$store.commit('toggleLogin')
     },
     showRegistModal () {
       console.log('hhh')
       this.$store.commit('toggleRegist')
+    }
+  },
+  events: {
+    'on-select' (name) {
+      console.log(name)
     }
   }
 }
@@ -70,5 +78,18 @@ h2
   float: right
   a
     padding: 10px
+button 
+  width: 100px
+  height: 60px
+  background: #fff
+  outline: none
+  border: none
+  cursor: pointer
+  &:hover
+    background: rgba(72,57,46, 0.5)
+    color: #fff
+.active 
+  background: #48392e !important
+  color: #fff
 </style>
 
