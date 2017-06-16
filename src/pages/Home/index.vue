@@ -6,10 +6,12 @@
         router-link.menu-item(to="/home") 首页
         router-link.menu-item(to="/mall")
           | 家具商城
-          .sub-menus
+          .sub-menus.sub-menus--two-item
             .sub-menu 卧室家具
             .sub-menu 客厅家具
             .sub-menu 餐厅家具
+            .sub-menu 书房家具
+            .sub-menu 家具软饰
             .sub-menu 办公家具
         router-link.menu-item(to='/help')
           | 帮助中心
@@ -29,8 +31,8 @@
       .bg-cover
       .search-bar
         .search
-          Input.input(v-model='keyword', placeholder="请输入...", size="large")
-          Button.item(type='primary', icon='ios-search', size="large") 搜索
+          input.input(v-model='keyword', placeholder="请输入...", size="large")
+          .button(type='primary', icon='ios-search', size="large") 搜索
 
   //- div.home.tc
   //-   div.main
@@ -177,6 +179,12 @@ export default {
             background: rgba(0, 0, 0, 0.4)
             &:hover
               background: rgba(0, 0, 0, 0.6)
+        .sub-menus--two-item
+          width: 200%
+          left: -50%
+          .sub-menu
+            width: 50%
+            display: inline-block
         &:hover
           background: rgba(0, 0, 0, 0.4)
           .sub-menus
@@ -214,9 +222,29 @@ export default {
         text-align: center
         .input
           width: 300px
-          margin-right: 10px
-        .item
+          padding: 10px 20px
+          font-size: 16px
+          height: 44px
+          box-sizing: border-box
+          outline: none
+          border: none
+          border-radius: 4px 0px 0px 4px
+        .button
           display: inline-block
+          font-size: 16px
+          color: white
+          font-weight: bold
+          border-radius: 0px 4px 4px 0px
+          padding: 10px 40px
+          background: #F1BD5B
+          user-select: none
+          cursor: pointer
+          height: 44px
+          &:hover
+            background: #E8BA64
+          &:active
+            background: #F1BD5B
+
 
 // .title
 //   border: 2px solid #d7d3d3
