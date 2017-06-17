@@ -13,60 +13,28 @@
           .right.pt-10.pb-10
             span.ml-20(v-for='temp in item.class')
               | {{temp}}
-    .result.mt-40
-      .number
-        | 共有42件家具
-      Row(:gutter='20')
-        Col.mt-20(:xs='12', :sm='8', :md='6', :lg='6' v-for='item in search_result', :key='item.id')
-          router-link(to='/detail') 
-            img(src='../../assets/placehold.png')
-            p.mt-10 {{item.name}}
-            p.mt-10 {{item.price}}
+    FoodList(:data="foodLists")
+
+    //- .result.mt-40
+    //-   .number
+    //-     | 共有42件家具
+    //-   Row(:gutter='20')
+    //-     Col.mt-20(:xs='12', :sm='8', :md='6', :lg='6' v-for='item in search_result', :key='item.id')
+    //-       router-link(to='/detail') 
+    //-         img(src='../../assets/placehold.png')
+    //-         p.mt-10 {{item.name}}
+    //-         p.mt-10 {{item.price}}
     .tc
       Page.mt-40(:total='100', @on-change='onPageChange' show-elevator)
 </template>
 
 <script>
+import FoodList from '@/components/App/FoodList.vue'
+
 export default {
   name: 'Mall',
   data () {
     return {
-      search_result: [{
-        id: 0,
-        name: '简约现代松木床',
-        imgsrc: '../../assets/placehold.png',
-        price: '¥ 12.00/月 起'
-      }, {
-        id: 1,
-        name: '简约现代松木床',
-        imgsrc: '../../assets/placehold.png',
-        price: '¥ 12.00/月 起'
-      }, {
-        id: 2,
-        name: '简约现代松木床',
-        imgsrc: '../../assets/placehold.png',
-        price: '¥ 12.00/月 起'
-      }, {
-        id: 3,
-        name: '简约现代松木床',
-        imgsrc: '../../assets/placehold.png',
-        price: '¥ 12.00/月 起'
-      }, {
-        id: 4,
-        name: '简约现代松木床',
-        imgsrc: '../../assets/placehold.png',
-        price: '¥ 12.00/月 起'
-      }, {
-        id: 5,
-        name: '简约现代松木床',
-        imgsrc: '../../assets/placehold.png',
-        price: '¥ 12.00/月 起'
-      }, {
-        id: 6,
-        name: '简约现代松木床',
-        imgsrc: '../../assets/placehold.png',
-        price: '¥ 12.00/月 起'
-      }],
       classes: [{
         type: '类型',
         class: ['实木床', '铁艺床', '布艺床', '子母床', '儿童床']
@@ -82,9 +50,17 @@ export default {
       }]
     }
   },
+  components: {
+    FoodList
+  },
   methods: {
     onPageChange (page) {
       console.log(page)
+    }
+  },
+  computed: {
+    foodLists () {
+      return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     }
   }
 }
@@ -92,6 +68,7 @@ export default {
 
 <style lang="sass" scoped>
 #Mall
+  background: #F5F5F5
   .filter
     .ivu-input-wrapper
       width: 300px
