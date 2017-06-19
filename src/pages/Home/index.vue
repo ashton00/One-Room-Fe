@@ -1,6 +1,6 @@
 <template lang='jade'>
   .home
-    .navigation(:class="whitenav ? 'navigation--white' : ''")
+    .navigation(:class="whitenav ? 'navigation--down' : ''")
       .logo 一室LOGO
       .menus
         router-link.menu-item(to="/home") 首页
@@ -279,17 +279,18 @@ export default {
         &:hover
           text-decoration: underline
           cursor: pointer
-  .navigation--white
+  .navigation--down
     background: #F1BD5B
     .logo
       color: white
     .menus
       .menu-item
         .sub-menus
+          background: #F1BD5B
           .sub-menu
-            background: rgba(241, 189, 91, 0.9)
+            background: rgba(0, 0, 0, 0)
             &:hover
-              background: rgba(241, 189, 91, 0.8)
+              background: rgba(0, 0, 0, 0.4)
   .content
     position: relative
     .bg
