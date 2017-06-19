@@ -410,7 +410,7 @@ export default {
                 background: rgba(255, 255, 255, 0.1)
                 content: ''
                 height: 225px
-                width: 250px
+                width: 100%
                 z-index: 10
 
 
