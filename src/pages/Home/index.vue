@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang="jade">
   .home
     .navigation(:class="navdown ? 'navigation--down' : ''")
       .logo 一室LOGO

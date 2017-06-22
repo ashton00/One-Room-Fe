@@ -8,6 +8,8 @@ import Payment from '../pages/Payment/index.vue'
 import Changepwd from '../pages/ChangePwd.vue'
 import Cart from '../pages/Cart.vue'
 
+import ShoppingCar from '../pages/ShoppingCar/index.vue'
+
 Vue.use(Router)
 
 let routes = [
@@ -45,6 +47,11 @@ let routes = [
     path: '/payment',
     name: 'payment',
     component: Payment
+  },
+  {
+    path: '/shopping-car',
+    name: 'shopping-car',
+    component: ShoppingCar
   }
 ]
 

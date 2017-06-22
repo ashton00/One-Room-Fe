@@ -1,6 +1,6 @@
 <template lang='jade'>
   .right-bar
-    .bar-item
+    .bar-item(@click="toShoppingPage")
       .item-title 购物车
       Badge.item-badge(:count="count")
       img.item-icon(src="../../assets/SideBar/shopcart.png")
@@ -24,6 +24,11 @@ export default {
     count: {
       type: Number,
       default: 1
+    }
+  },
+  methods: {
+    toShoppingPage: function() {
+      this.$router.push('/shopping-car')
     }
   }
 }

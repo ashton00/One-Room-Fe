@@ -1,0 +1,128 @@
+label
+  font-size: 14px
+.countTool
+  width: 102px
+  height: 30px
+  overflow: hidden
+  border: 1px solid black
+  .left, .middle, .right
+    display: inline-block
+    text-align: center
+    line-height: 30px
+    font-size: 18px
+  .left, .right
+    width: 30px
+    cursor: pointer
+  .middle
+    width: 40px
+  .left
+    border-right: 1px solid black
+  .right
+    border-left: 1px solid black
+
+#shopping-car
+  background: #fff
+  margin: 0px auto
+  width: 90%
+.mainTitle
+  font-size: 20px
+  margin: 30px 0px
+.allFoods
+  font-size: 16px
+  color: #F1BD5B
+  margin-bottom: 24px
+.listTitle
+  font-size: 14px
+
+  .item
+    display: inline-block
+    width: 12%
+    text-align: center
+    &:first-child
+      text-align: left
+.storeItem
+  width: 100%
+  border: 1px solid #ccc
+  border-radius: 4px
+  margin-top: 20px
+  margin-bottom: 50px
+  min-width: 800px
+
+  .storeTop
+    padding: 0 20px
+    height: 40px
+    line-height: 40px
+    background: rgb(237, 238, 239)
+  .storeName, .storeConsult
+    display: inline-block
+    font-size: 14px
+    margin-right: 20px
+  .foodItem
+    font-size: 14px
+    height: 100px
+    display: flex
+    overflow: hidden
+    border-bottom: 1px dotted #ccc
+    &:last-child
+      border-bottom: none
+    .colItem
+      display: flex
+      align-items: center
+      width: 12%
+      height: 100px
+      overflow: hidden
+      justify-content: center
+
+    .colItem:first-child
+      padding-left: 20px
+      justify-content: left
+    .pic img
+      width: 80px
+      height: 80px
+      margin-left: 4%
+    .oper
+      display: inline-block
+      text-align: center
+
+    .operItem
+      display: block
+      height: 50px
+      line-height: 50px
+      span
+        cursor: pointer
+.shopCar
+  height: 60px
+  background: #48392e
+  margin-bottom: 100px
+  padding-left: 20px
+  min-width: 800px
+  .item
+    display: inline-block
+    color: #fff
+    height: 60px
+    overflow: hidden
+    line-height: 60px
+    text-align: center
+    span
+      cursor: pointer
+  .total
+    width: 200px
+    margin-right: 24px
+    float: right
+    
+  .count
+    background: #F1BD5B
+    width: 110px
+    float: right
+    color: #48392e
+    font-size: 20px
+    cursor: pointer
+  .selected
+    width: 100px
+    margin-right: 32px
+    float: right
+  
+  .delete
+    width: 100px
+  .move
+    width: 200px
