@@ -168,7 +168,7 @@ export default {
       color: #f1bf50
     .detail
       span
-        width: 60px
+        width: 70px
         display: inline-block
       .row
         margin-right: 200px
