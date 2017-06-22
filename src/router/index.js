@@ -12,48 +12,56 @@ import ShoppingCar from '../pages/ShoppingCar/index.vue'
 
 Vue.use(Router)
 
-export default new Router({
+let routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: Home
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: Home
+  },
+  {
+    path: '/mall',
+    name: 'mall',
+    component: Mall
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: Cart
+  },
+  {
+    path: '/detail',
+    name: 'detail',
+    component: Detail
+  },
+  {
+    path: '/findpwd',
+    name: 'changepwd',
+    component: Changepwd
+  },
+  {
+    path: '/payment',
+    name: 'payment',
+    component: Payment
+  },
+  {
+    path: '/shopping-car',
+    name: 'shopping-car',
+    component: ShoppingCar
+  }
+]
+
+const router = new Router({
   mode: 'history',
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home
-    },
-    {
-      path: '/home',
-      name: 'home',
-      component: Home
-    },
-    {
-      path: '/mall',
-      name: 'mall',
-      component: Mall
-    },
-    {
-      path: '/cart',
-      name: 'cart',
-      component: Cart
-    },
-    {
-      path: '/detail',
-      name: 'detail',
-      component: Detail
-    },
-    {
-      path: '/findpwd',
-      name: 'changepwd',
-      component: Changepwd
-    },
-    {
-      path: '/payment',
-      name: 'payment',
-      component: Payment
-    },
-    {
-      path: '/shopping-car',
-      name: 'shopping-car',
-      component: ShoppingCar
-    }
-  ]
+  routes: routes
 })
+
+router.afterEach((to, from, next) => {
+  window.scroll(0, 0)
+})
+
+export default router
