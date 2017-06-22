@@ -121,4 +121,13 @@ export default {
 
 .bold
   font-weight: bold
+.yellow
+  color: #f1bf50
+.red
+  color: red
+.ivu-icon-arrow-up-a
+  color: #f1bf50
+.ivu-icon-arrow-down-a
+  color: red
+
 </style>
