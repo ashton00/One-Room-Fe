@@ -49,6 +49,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 
+.main-content
+  min-width: 1200px
+
 //原子类
 .bw
   background-color: white

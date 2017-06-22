@@ -1,15 +1,17 @@
 <template lang='jade'>
   .home
-    .navigation
+    .navigation(:class="navdown ? 'navigation--down' : ''")
       .logo 一室LOGO
       .menus
         router-link.menu-item(to="/home") 首页
         router-link.menu-item(to="/mall")
           | 家具商城
-          .sub-menus
+          .sub-menus.sub-menus--two-item
             .sub-menu 卧室家具
             .sub-menu 客厅家具
             .sub-menu 餐厅家具
+            .sub-menu 书房家具
+            .sub-menu 家具软饰
             .sub-menu 办公家具
         router-link.menu-item(to='/help')
           | 帮助中心
@@ -29,85 +31,28 @@
       .bg-cover
       .search-bar
         .search
-          Input.input(v-model='keyword', placeholder="请输入...", size="large")
-          Button.item(type='primary', icon='ios-search', size="large") 搜索
-
-  //- div.home.tc
-  //-   div.main
-  //-     RightBar
-  //-     div.pt-80.pb-100
-  //-       h1 一室|一种个性化的生活方式
-  //-       div(class='search').mt-30
-  //-         Input(v-model='keyword' placeholder="请输入..." id='keyword')
-  //-         Button(type='primary' icon='ios-search') SEARCH
-  //-   div.images.mt-40.pb-100
-  //-     Row
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-    //- Carousel(v-model='value1' autoplay)
-    //-   Carousel-item
-    //-     div.demo-carousel 1
-    //-   Carousel-item
-    //-     div.demo-carousel 2
-    //-   Carousel-item
-    //-     div.demo-carousel 3
-    //-   Carousel-item
-    //-     div.demo-carousel 4
-  //- div.jiaju
-  //-   div.tc.p-30.bw.title
-  //-     h1 家具分类
-  //-   div.image.pt-40.pb-40
-  //-     Row
-  //-       Col(span='12')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-  //-     Row
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='12')
-  //-         img(src='../../assets/placehold.png')  
-  //- div.recommend
-  //-   div.tc.p-30.bw.title
-  //-     h1 热门推荐
-  //-   Row.pt-40.pb-40
-  //-     Col(span='8')
-  //-       img(src='../../assets/placehold.png')
-  //-     Col(span='8')
-  //-       img(src='../../assets/placehold.png')
-  //-     Col(span='8')
-  //-       img(src='../../assets/placehold.png')
-  //- div.cooperation
-  //-   div.tc.p-30.bw.title
-  //-     h1 品牌合作
-  //-   div.image.pt-40.pb-40
-  //-     Row
-  //-       Col(span='8')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='8')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='8')
-  //-         img(src='../../assets/placehold.png')
-  //-     Row.pt-20
-  //-       Col(span='8')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='8')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='8')
-  //-         img(src='../../assets/placehold.png')
+          input.input(v-model='keyword', placeholder="请输入...")
+          .button(type='primary', icon='ios-search', size="large") 搜索
+    .body
+      //- .section
+      //-   .title
+      //-     .name 家具分类
+      //-   .body
+      .section
+        .title
+          .name 热门推荐
+        .body
+          FoodList(:data="hotLists", :linkFunc="linkTo")
+      .section
+        .title
+          .name 猜你喜欢
+        .body
+          FoodList(:data="hotLists", :linkFunc="linkTo")
+                
 </template>
 
 <script>
+import FoodList from '@/components/App/FoodList.vue'
 import Login from '@/components/App/Modal/Login'
 import Regist from '@/components/App/Modal/Regist'
 
@@ -116,8 +61,16 @@ export default {
   data () {
     return {
       keyword: '',
-      value1: 1
+      navdown: true
     }
+  },
+  created () {
+    window.onscroll = (e) => {
+      this.navdown = document.body.scrollTop > 200
+    }
+  },
+  beforeDestroy () {
+    window.onscroll = null
   },
   methods: {
     showLoginModal () {
@@ -126,10 +79,18 @@ export default {
     showRegistModal () {
       console.log('hhh')
       this.$store.commit('toggleRegist')
+    },
+    linkTo (subject) {
+      return '/detail'
     }
   },
   components: {
-    Login, Regist
+    Login, Regist, FoodList
+  },
+  computed: {
+    hotLists () {
+      return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    }
   }
 }
 </script>
@@ -137,6 +98,7 @@ export default {
 <style lang="sass" scoped>
 .home
   .navigation
+    min-width: 1200px
     position: fixed
     top: 0px
     left: 0px
@@ -177,11 +139,16 @@ export default {
             background: rgba(0, 0, 0, 0.4)
             &:hover
               background: rgba(0, 0, 0, 0.6)
+        .sub-menus--two-item
+          width: 200%
+          left: -50%
+          .sub-menu
+            width: 50%
+            display: inline-block
         &:hover
           background: rgba(0, 0, 0, 0.4)
           .sub-menus
             display: block
-
     .operations
       float: right
       .op-item
@@ -192,6 +159,18 @@ export default {
         &:hover
           text-decoration: underline
           cursor: pointer
+  .navigation--down
+    background: #F1BD5B
+    .logo
+      color: white
+    .menus
+      .menu-item
+        .sub-menus
+          background: #F1BD5B
+          .sub-menu
+            background: rgba(0, 0, 0, 0)
+            &:hover
+              background: rgba(0, 0, 0, 0.4)
   .content
     position: relative
     .bg
@@ -214,21 +193,104 @@ export default {
         text-align: center
         .input
           width: 300px
-          margin-right: 10px
-        .item
+          padding: 10px 20px
+          font-size: 16px
+          height: 44px
+          box-sizing: border-box
+          outline: none
+          border: none
+          border-radius: 4px 0px 0px 4px
+          border: 2px solid #F1BD5B
+        .button
           display: inline-block
+          font-size: 16px
+          color: white
+          font-weight: bold
+          border-radius: 0px 4px 4px 0px
+          padding: 10px 40px
+          background: #F1BD5B
+          user-select: none
+          cursor: pointer
+          height: 44px
+          &:hover
+            background: #E8BA64
+          &:active
+            background: #F1BD5B
+  .section
+    background: #F5F5F5
+    padding: 20px 10px 10px 10px
+    &:first-child
+      padding: 40px 10px 10px 10px
+    .title
+      text-align: center
+      .name
+        display: inline-block
+        font-size: 18px
+        line-height: 20px
+        color: #666
+        position: relative
+        &::after
+          content: ''
+          display: block
+          position: absolute
+          width: 40px
+          height: 1px
+          background: #777
+          left: -60px
+          top: 50%
+          margin-top: -0.5px
+        &::before
+          content: ''
+          display: block
+          position: absolute
+          width: 40px
+          height: 1px
+          background: #777
+          right: -60px
+          top: 50%
+          margin-top: -0.5px
 
-// .title
-//   border: 2px solid #d7d3d3
-// .home
-//   background-color: #F2F2F2
-// .main
-//   overflow: auto
-// #keyword
-//   width: 400px
-//   margin-right: 10px
-// .demo-carousel
-//   height: 200px
-//   background-color: #506b9e
-//   width: auto
+    .body
+      margin: 10px 0px
+      .good-container
+        width: 20%
+        min-width: 230px
+        padding-right: 10px
+        padding-top: 10px
+        box-sizing: border-box
+        display: inline-block
+        .good
+          background: #fff
+          box-sizing: border-box
+          position: relative
+          .pic
+            width: 100%
+            height: 225px
+          .info
+            padding: 10px 20px
+            .name
+              overflow: hidden
+              text-overflow: ellipsis
+              white-space: nowrap
+              color: #666
+              font-size: 13px
+            .price
+              color: #ff0036
+              font-size: 14px
+              line-height: 32px
+          &:hover
+            outline: 1px solid #F1BD5B
+            cursor: pointer
+            .info
+              &::after
+                position: absolute
+                top: 0px
+                left: 0px
+                display: block
+                background: rgba(255, 255, 255, 0.1)
+                content: ''
+                height: 225px
+                width: 100%
+                z-index: 10
+
 </style>
