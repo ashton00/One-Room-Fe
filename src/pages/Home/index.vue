@@ -1,6 +1,6 @@
 <template lang='jade'>
   .home
-    .navigation(:class="whitenav ? 'navigation--down' : ''")
+    .navigation(:class="navdown ? 'navigation--down' : ''")
       .logo 一室LOGO
       .menus
         router-link.menu-item(to="/home") 首页
@@ -34,152 +34,25 @@
           input.input(v-model='keyword', placeholder="请输入...")
           .button(type='primary', icon='ios-search', size="large") 搜索
     .body
-      .section
-        .title
-          .name 家具分类
-        .body
-          .good-container
-            .good
-              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
-              .info
-                .name Kindle官方旗舰店Kindle Paperwhite3亚马逊电子书阅读器电纸书
-                .price ¥ 958.0
-          .good-container
-            .good
-              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
-              .info
-                .name Kindle官方旗舰店Kindle 
-                .price ¥ 958.0
-          .good-container
-            .good
-              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
-              .info
-                .name Kindle官方旗舰店Kindle 
-                .price ¥ 958.0
-          .good-container
-            .good
-              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
-              .info
-                .name Kindle官方旗舰店Kindle 
-                .price ¥ 958.0
-          .good-container
-            .good
-              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
-              .info
-                .name Kindle官方旗舰店Kindle Paperwhite3亚马逊电子书阅读器电纸书
-                .price ¥ 958.0
+      //- .section
+      //-   .title
+      //-     .name 家具分类
+      //-   .body
       .section
         .title
           .name 热门推荐
         .body
-          .good-container
-            .good
-              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
-              .info
-                .name Kindle官方旗舰店Kindle Paperwhite3亚马逊电子书阅读器电纸书
-                .price ¥ 958.0
-          .good-container
-            .good
-              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
-              .info
-                .name Kindle官方旗舰店Kindle 
-                .price ¥ 958.0
-          .good-container
-            .good
-              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
-              .info
-                .name Kindle官方旗舰店Kindle 
-                .price ¥ 958.0
-          .good-container
-            .good
-              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
-              .info
-                .name Kindle官方旗舰店Kindle 
-                .price ¥ 958.0
-          .good-container
-            .good
-              img.pic(src="http://yizitong.org/upload/images11/4d8127173be4d329ac0040b7be437cfb.jpg")
-              .info
-                .name Kindle官方旗舰店Kindle Paperwhite3亚马逊电子书阅读器电纸书
-                .price ¥ 958.0
-
-
-  //- div.home.tc
-  //-   div.main
-  //-     RightBar
-  //-     div.pt-80.pb-100
-  //-       h1 一室|一种个性化的生活方式
-  //-       div(class='search').mt-30
-  //-         Input(v-model='keyword' placeholder="请输入..." id='keyword')
-  //-         Button(type='primary' icon='ios-search') SEARCH
-  //-   div.images.mt-40.pb-100
-  //-     Row
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-    //- Carousel(v-model='value1' autoplay)
-    //-   Carousel-item
-    //-     div.demo-carousel 1
-    //-   Carousel-item
-    //-     div.demo-carousel 2
-    //-   Carousel-item
-    //-     div.demo-carousel 3
-    //-   Carousel-item
-    //-     div.demo-carousel 4
-  //- div.jiaju
-  //-   div.tc.p-30.bw.title
-  //-     h1 家具分类
-  //-   div.image.pt-40.pb-40
-  //-     Row
-  //-       Col(span='12')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-  //-     Row
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='6')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='12')
-  //-         img(src='../../assets/placehold.png')  
-  //- div.recommend
-  //-   div.tc.p-30.bw.title
-  //-     h1 热门推荐
-  //-   Row.pt-40.pb-40
-  //-     Col(span='8')
-  //-       img(src='../../assets/placehold.png')
-  //-     Col(span='8')
-  //-       img(src='../../assets/placehold.png')
-  //-     Col(span='8')
-  //-       img(src='../../assets/placehold.png')
-  //- div.cooperation
-  //-   div.tc.p-30.bw.title
-  //-     h1 品牌合作
-  //-   div.image.pt-40.pb-40
-  //-     Row
-  //-       Col(span='8')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='8')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='8')
-  //-         img(src='../../assets/placehold.png')
-  //-     Row.pt-20
-  //-       Col(span='8')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='8')
-  //-         img(src='../../assets/placehold.png')
-  //-       Col(span='8')
-  //-         img(src='../../assets/placehold.png')
+          FoodList(:data="hotLists", :linkFunc="linkTo")
+      .section
+        .title
+          .name 猜你喜欢
+        .body
+          FoodList(:data="hotLists", :linkFunc="linkTo")
+                
 </template>
 
 <script>
+import FoodList from '@/components/App/FoodList.vue'
 import Login from '@/components/App/Modal/Login'
 import Regist from '@/components/App/Modal/Regist'
 
@@ -188,13 +61,12 @@ export default {
   data () {
     return {
       keyword: '',
-      value1: 1,
-      whitenav: true
+      navdown: true
     }
   },
   created () {
     window.onscroll = (e) => {
-      this.whitenav = document.body.scrollTop > 200
+      this.navdown = document.body.scrollTop > 200
     }
   },
   beforeDestroy () {
@@ -207,10 +79,18 @@ export default {
     showRegistModal () {
       console.log('hhh')
       this.$store.commit('toggleRegist')
+    },
+    linkTo (subject) {
+      return '/detail'
     }
   },
   components: {
-    Login, Regist
+    Login, Regist, FoodList
+  },
+  computed: {
+    hotLists () {
+      return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    }
   }
 }
 </script>
@@ -413,18 +293,4 @@ export default {
                 width: 100%
                 z-index: 10
 
-
-// .title
-//   border: 2px solid #d7d3d3
-// .home
-//   background-color: #F2F2F2
-// .main
-//   overflow: auto
-// #keyword
-//   width: 400px
-//   margin-right: 10px
-// .demo-carousel
-//   height: 200px
-//   background-color: #506b9e
-//   width: auto
 </style>
