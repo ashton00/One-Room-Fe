@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang="jade">
   .home
     .navigation(:class="whitenav ? 'navigation--white' : ''")
       .logo 一室LOGO

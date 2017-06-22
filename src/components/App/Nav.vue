@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang="jade">
 Menu(mode='horizontal' theme='light' active-name='1' class='navbar').tc
   .logo 一室LOGO
   button(v-for="(bar, index) in barList",
