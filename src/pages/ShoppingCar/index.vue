@@ -26,13 +26,32 @@
       .colItem.des
         | 简约现代松木床米色1.5 * 1.9 m 九成新
       .colItem.amount
+        .countTool
+          .left -
+          .middle 1
+          .right +
       .colItem.time 6个月
       .colItem.price ￥12.00/月
       .colItem.yajin ￥300.00
       .colItem.rent ￥72
       .colItem.oper
-        .operItem 移入文件夹
-        .operItem 删除
+        .operItem
+          span 移入文件夹
+        .operItem
+          span 删除
+  
+  .shopCar
+    .item.checkbox
+      Checkbox(v-mode="single") 全选
+    .item.delete 
+      span 删除
+    .item.move
+      span 移入收藏夹
+    .item.count 结算
+    .item.total 合计(不含运费) ￥100
+    .item.selected 已选商品 0 件
+
+
 
 </template>
 
@@ -40,7 +59,7 @@
 export default {
   data() {
     return {
-      single: true,
+      single: false,
       storeItems: [[1, 2], [1, 2]]
     }
   }
@@ -49,6 +68,4 @@ export default {
 
 <style lang="sass" scoped>
 @import "./index.sass";
-
-
 </style>
