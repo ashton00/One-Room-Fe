@@ -4,9 +4,12 @@ import Home from '../pages/Home/index.vue'
 import Mall from '../pages/Mall/index.vue'
 import Detail from '../pages/Mall/pages/Detail.vue'
 import Payment from '../pages/Payment/index.vue'
+import PersonalCenter from '../pages/PC/index.vue'
 
 import Changepwd from '../pages/ChangePwd.vue'
 import Cart from '../pages/Cart.vue'
+
+import PCChild from './pc.child.js'
 
 Vue.use(Router)
 
@@ -45,6 +48,12 @@ let routes = [
     path: '/payment',
     name: 'payment',
     component: Payment
+  },
+  {
+    path: '/personalcenter',
+    name: 'PersonalCenter',
+    component: PersonalCenter,
+    children: PCChild
   }
 ]
 

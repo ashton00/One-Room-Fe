@@ -28,7 +28,6 @@ export default {
 
 <style lang="sass" scoped>
   .footer
-    border-top: 2px solid #bdbaba
     padding: 60px 70px
     background-color: #48392e
     color: #F1BD5B
