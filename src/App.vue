@@ -42,94 +42,109 @@ export default {
 </script>
 
 /*测试*/
-<style lang='sass'>
-body 
+<style lang='less'>
+@import '~iview/src/styles/index.less';
+
+@primary-color: #F1BD5B;
+
+body {
   font-size: 14px
-#app
+}
+#app{
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
 
-.main-content
+.main-content{
   min-width: 1200px
+}
 
-//原子类
-.bw
+// 原子类
+.bw {
   background-color: white
-.tc
+}
+.tc {
   text-align: center
-.tl
+}
+.tl {
   text-align: left
-.tr
+}
+.tr {
   text-align: right
+}
 
-.fl
+.fl {
   float: left
-.fr
+}
+.fr {
   float: right
+}
 
-.ib
+.ib {
   display: inline-block
+}
 
-@for $i from 12 through 30
-  .fs-#{$i}
-    font-size: $i + px
-    
+.generate-base(100);
 
-// @for $i from 1 through 20
-//   .p-#{5*$i}
-//     padding: (5 * $i) + px
-//   .pl-#{5*$i}
-//     padding-left: (5 * $i) + px
-//   .pr-#{5*$i}
-//     padding-right: (5 * $i) + px
-//   .pb-#{5*$i}
-//     padding-bottom: (5 * $i) + px
-//   .pt-#{5*$i}
-//     padding-top: (5 * $i) + px
-//   .m-#{5*$i}
-//     margin: (5 * $i) + px
-//   .ml-#{5*$i}
-//     margin-left: (5 * $i) + px
-//   .mr-#{5*$i}
-//     margin-right: (5 * $i) + px
-//   .mb-#{5*$i}
-//     margin-bottom: (5 * $i) + px
-//   .mt-#{5*$i}
-//     margin-top: (5 * $i) + px
-@for $i from 1 through 100
-  $temp: $i + px
-  .p-#{$i}
-    padding: $temp
-  .pl-#{$i}
-    padding-left: $temp
-  .pr-#{$i}
-    padding-right: $temp
-  .pb-#{$i}
-    padding-bottom: $temp
-  .pt-#{$i}
-    padding-top: $temp
-  .m-#{$i}
-    margin: $temp
-  .ml-#{$i}
-    margin-left: $temp
-  .mr-#{$i}
-    margin-right: $temp
-  .mb-#{$i}
-    margin-bottom: $temp
-  .mt-#{$i}
-    margin-top: $temp
+.generate-base(@n, @i: 1, @temp: 1px) when (@i =< @n) {
+  .p-@{i} {
+    padding: @temp
+  }
+  .pl-@{i} {
+    padding-left: @temp
+  }
+  .pr-@{i} {
+    padding-right: @temp
+  }
+  .pb-@{i} {
+    padding-bottom: @temp
+  }
+  .pt-@{i} {
+    padding-top: @temp
+  }
+  .m-@{i} {
+    margin: @temp
+  }
+  .ml-@{i} {
+    margin-left: @temp
+  }
+  .mr-@{i} {
+    margin-right: @temp
+  }
+  .mb-@{i} {
+    margin-bottom: @temp
+  }
+  .mt-@{i} {
+    margin-top: @temp
+  }
+  .generate-base(@n, (@i + 1), (@temp + 1px));
+}
 
-.bold
+.generate-font(30, 12, 12px);
+
+.generate-font(@n, @i: 1, @temp: 1px) when (@i =< @n) {
+  .fs-@{i} {
+    font-size: @temp
+  }
+  .generate-font(@n, (@i + 1), (@temp + 1px));
+}
+
+.bold {
   font-weight: bold
-.yellow
+}
+.yellow {
   color: #f1bf50
-.red
+}
+.red {
   color: red
-.ivu-icon-arrow-up-a
+}
+.ivu-icon-arrow-up-a {
   color: #f1bf50
-.ivu-icon-arrow-down-a
+}
+.ivu-icon-arrow-down-a {
   color: red
+}
 
 </style>

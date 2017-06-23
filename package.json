@@ -16,6 +16,8 @@
   "dependencies": {
     "iview": "^2.0.0-rc.9",
     "jade": "^1.11.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
     "vue": "^2.2.2",
     "vue-router": "^2.2.0",
     "vuex": "^2.2.1"
