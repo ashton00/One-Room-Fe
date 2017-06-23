@@ -43,6 +43,8 @@ export default {
 
 /*测试*/
 <style lang='sass'>
+body 
+  font-size: 14px
 #app
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -74,6 +76,7 @@ export default {
   .fs-#{$i}
     font-size: $i + px
     
+
 // @for $i from 1 through 20
 //   .p-#{5*$i}
 //     padding: (5 * $i) + px
@@ -120,4 +123,13 @@ export default {
 
 .bold
   font-weight: bold
+.yellow
+  color: #f1bf50
+.red
+  color: red
+.ivu-icon-arrow-up-a
+  color: #f1bf50
+.ivu-icon-arrow-down-a
+  color: red
+
 </style>

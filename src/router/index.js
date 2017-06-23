@@ -8,6 +8,7 @@ import PersonalCenter from '../pages/PC/index.vue'
 
 import Changepwd from '../pages/ChangePwd.vue'
 import Cart from '../pages/Cart.vue'
+import ShoppingCar from '../pages/ShoppingCar/index.vue'
 
 import PCChild from './pc.child.js'
 
@@ -54,6 +55,11 @@ let routes = [
     name: 'PersonalCenter',
     component: PersonalCenter,
     children: PCChild
+  },
+  {
+    path: '/shopping-car',
+    name: 'shopping-car',
+    component: ShoppingCar
   }
 ]
 
