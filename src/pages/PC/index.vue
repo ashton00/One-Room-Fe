@@ -1,7 +1,7 @@
 <template lang="jade">
   .PC
     .header
-      span.title 个人中心
+      router-link.title(to="/personalcenter/home") 个人中心
       .my-item 我的购物车
       .my-item 我的优惠券
       .my-item 消息
@@ -10,7 +10,7 @@
         .menu
           .title 订单中心
           router-link.sub-menu(to="/personalcenter/order") 我的订单
-          router-link.sub-menu(to="/personalcenter/home") 我的归还
+          router-link.sub-menu(to="/personalcenter/return") 我的归还
         .menu
           .title 我的申请
           .sub-menu 申请退租
@@ -56,6 +56,7 @@ export default {
         display: inline-block
         width: 100px
         text-align: left
+        color: #000
       .my-item
         display: inline-block
         float: right

@@ -13,13 +13,12 @@ export default {
   data () {
     return {
       menus: [
-        { name: '全部订单', num: 2 },
-        { name: '待付款', num: 0 },
-        { name: '待发货', num: 0 },
-        { name: '待收货', num: 1 },
-        { name: '待收货', num: 1 }
+        { name: '全部', num: 1 },
+        { name: '待归还', num: 0 },
+        { name: '归还中', num: 0 },
+        { name: '已归还', num: 1 }
       ],
-      datas: [{ goods: [1, 2, 3] }, { goods: [1, 2] }]
+      datas: [{ goods: [1, 2] }]
     }
   },
   components: {
