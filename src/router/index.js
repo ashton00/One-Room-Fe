@@ -5,6 +5,7 @@ import Mall from '../pages/Mall/index.vue'
 import Detail from '../pages/Mall/pages/Detail.vue'
 import Payment from '../pages/Payment/index.vue'
 import PersonalCenter from '../pages/PC/index.vue'
+import Register from '../pages/Register/index.vue'
 
 import Changepwd from '../pages/ChangePwd.vue'
 import Cart from '../pages/Cart.vue'
@@ -19,6 +20,11 @@ let routes = [
     path: '/',
     name: 'home',
     component: Home
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
   },
   {
     path: '/home',

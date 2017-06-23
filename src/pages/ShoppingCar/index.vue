@@ -36,18 +36,18 @@
       .colItem.rent ￥72
       .colItem.oper
         .operItem
-          span 移入文件夹
+          span 移入收藏夹
         .operItem
           span 删除
   
   .shopCar
     .item.checkbox
-      Checkbox(v-mode="single") 全选
+      Checkbox(v-model="single") 全选
     .item.delete 
-      span 删除
+      span(@click="deleteFoods") 删除
     .item.move
       span 移入收藏夹
-    .item.count 结算
+    .item.count(@click="countAll") 结算
     .item.total 合计(不含运费) ￥100
     .item.selected 已选商品 0 件
 
@@ -57,12 +57,28 @@
 
 <script>
 export default {
+  //========选项/数据==========//
   data() {
     return {
       single: false,
       storeItems: [[1, 2], [1, 2]]
     }
+  },
+  methods: {
+    // 结算全部
+    countAll: function() {
+      this.$Notice.open({
+        title: '结算',
+        desc: '结算'
+      });
+    },
+    // 删除商品
+    deleteFoods: function () {
+
+    }
+
   }
+  //========选项/生命周期钩子==========//
 }
 </script>
 

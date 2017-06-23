@@ -6,7 +6,7 @@ Menu(mode='horizontal' theme='light' active-name='1' class='navbar').tc
 
   div(class='login')
     a(@click='showLoginModal') 登录
-    a(@click='showRegistModal') 注册
+    a(target="_blank" href="/register" @click='showRegistModal') 注册
   Login
   Regist
 </template>
@@ -46,8 +46,7 @@ export default {
       this.$store.commit('toggleLogin')
     },
     showRegistModal () {
-      console.log('hhh')
-      this.$store.commit('toggleRegist')
+      // this.$store.commit('toggleRegist')
     }
   },
   events: {
