@@ -1,23 +1,18 @@
 <template lang="jade">
 Modal(v-model='isLogin' @on-cancel='cancel' width='380')
   .login-page
-    .form
-      form.register-form
-        input(type='text', placeholder='name')
-        input(type='password', placeholder='password')
-        input(type='text', placeholder='email address')
-        button create
-        p.message
-          | Already registered? 
-          a(href='#') Sign In
-      form.login-form
-        input(type='text', placeholder='username')
-        input(type='password', placeholder='password')
-        button login
-        p.message
-          | Not registered? 
-          a(href='#') Create an account
   
+    .form
+      form.login-form
+        input(type='text', placeholder='手机号')
+        input(type='password', placeholder='密码')
+        button 登录
+        p.message
+          | 还未注册 ?
+          a(href='/register' target="_blank") 创建一室账号
+  
+  div(slot='footer')
+
 </template>
 
 <script>
@@ -58,10 +53,12 @@ span.ivu-checkbox
   z-index: 1
   background: #FFFFFF
   max-width: 360px
-  margin: 0 auto 100px
   padding: 45px
+  padding-top: 20px
   text-align: center
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24)
+
+.ivu-modal-footer
+  display: none !important
 
 .form input 
   font-family: "Roboto", sans-serif
