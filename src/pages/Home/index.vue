@@ -270,6 +270,7 @@ export default {
   .section
     .furniture-kinds
       margin: 10px 8%
+      font-size: 0px
       .gird
         cursor: pointer
         width: 244px
