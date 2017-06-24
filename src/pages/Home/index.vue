@@ -37,17 +37,17 @@
       .section
         .title
           .name 热门分类
-        row
-          col(span='18', push='6')
-          | col-18 | push-6
-          col(span='6', pull='18')
-          | col-6 | pull-18
+        .furniture-kinds
+          .gird(v-for="item in furnitureKinds")
+            .gird-title {{ item.name }}
+            .gird-img
+              img(:src="item.img")
 
-      .section
-        .title
-          .name 热门客厅家具
-        .body
-          FoodList(:data="hotLists", :linkFunc="linkTo")
+      // .section
+      //   .title
+      //     .name 热门客厅家具
+      //   .body
+      //     FoodList(:data="hotLists", :linkFunc="linkTo")
                 
 </template>
 
@@ -61,7 +61,15 @@ export default {
   data () {
     return {
       keyword: '',
-      navdown: false
+      navdown: false,
+      furnitureKinds: [
+        { name: "卧室家具", img: require("../../assets/woshi.jpeg")},
+        { name: "客厅家具", img: require("../../assets/keting.jpeg")},
+        { name: "餐厅家具", img: require("../../assets/canting.jpeg")},
+        { name: "书房家具", img: require("../../assets/shufang.jpeg")},
+        { name: "家居软饰", img: require("../../assets/ruanshi.jpeg")},
+        { name: "办公家具", img: require("../../assets/bangong.jpeg")},
+      ]
     }
   },
   created () {
@@ -226,12 +234,12 @@ export default {
   .section
     background: #F5F5F5
     padding: 20px 10px 10px 10px
+    
     &:first-child
       padding: 40px 10px 10px 10px
     .title
       text-align: left
       margin: 0 8%
-      padding-left: 34px
       .name
         border-left: 4px solid #F1BD5B
         padding-left: 10px
@@ -260,9 +268,48 @@ export default {
         //   right: -60px
         //   top: 50%
         //   margin-top: -0.5px
-
+  
+  .section
+    .furniture-kinds
+      margin: 10px 8%
+      .gird
+        cursor: pointer
+        width: 244px
+        height: 220px
+        background-color: #fff
+        border: 1px solid #f5f5f5
+        display: inline-block
+        overflow: hidden
+        // &:hover
+        //   background: #ccc
+      .gird-title
+        height: 70px
+        line-height: 70px
+        font-size: 18px
+        text-overflow: ellipsis
+        overflow: hidden
+        white-space: nowrap
+        color: #000
+        padding-left: 20px
+      .gird-img
+        text-align: center
+        overflow: hidden
+        width: 200px
+        height: 150px
+        margin: 0 auto
+        img
+          transition: all 0.5s
+          width: 200px
+          height: 150px
+      .gird-img:hover > img
+        transform: scale(1.1)
+        
+    
+    
+    
     .body
       margin: 10px 0px
+
       .good-container
         width: 20%
         min-width: 230px
