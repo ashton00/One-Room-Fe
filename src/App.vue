@@ -86,6 +86,11 @@ body {
   display: inline-block
 }
 
+.line {
+  border-bottom: 1px solid #ccc;
+  width: 100%
+}
+
 .generate-base(100);
 
 .generate-base(@n, @i: 1, @temp: 1px) when (@i =< @n) {

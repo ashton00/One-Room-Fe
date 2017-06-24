@@ -22,7 +22,7 @@
         router-link.menu-item(to="/business") 商家入驻
       .operations
         .op-item(@click='showLoginModal') 登陆
-        .op-item(@click='showRegistModal') 注册
+        a.op-item(href="/register" target="_blank") 注册
         Login
         Regist
 
@@ -77,7 +77,6 @@ export default {
       this.$store.commit('toggleLogin')
     },
     showRegistModal () {
-      console.log('hhh')
       this.$store.commit('toggleRegist')
     },
     linkTo (subject) {
