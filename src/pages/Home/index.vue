@@ -26,26 +26,26 @@
         Login
         Regist
 
-    .content
-      img.bg(src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497358555057&di=8481cdbcd6677dd7c6bc2128a4b41afd&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F13%2F60%2F10%2F58j58PICxWR_1024.jpg")
+    .img-content
       .bg-cover
       .search-bar
         .search
           input.input(v-model='keyword', placeholder="请输入...")
           .button(type='primary', icon='ios-search', size="large") 搜索
     .body
-      //- .section
-      //-   .title
-      //-     .name 家具分类
-      //-   .body
+
       .section
         .title
-          .name 热门推荐
-        .body
-          FoodList(:data="hotLists", :linkFunc="linkTo")
+          .name 热门分类
+        row
+          col(span='18', push='6')
+          | col-18 | push-6
+          col(span='6', pull='18')
+          | col-6 | pull-18
+
       .section
         .title
-          .name 猜你喜欢
+          .name 热门客厅家具
         .body
           FoodList(:data="hotLists", :linkFunc="linkTo")
                 
@@ -61,13 +61,16 @@ export default {
   data () {
     return {
       keyword: '',
-      navdown: true
+      navdown: false
     }
   },
   created () {
     window.onscroll = (e) => {
       this.navdown = document.body.scrollTop > 200
     }
+  },
+  mounted () {
+    (document.getElementsByClassName('img-content')[0]).style.height = window.innerHeight + 'px';
   },
   beforeDestroy () {
     window.onscroll = null
@@ -88,7 +91,7 @@ export default {
   },
   computed: {
     hotLists () {
-      return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      return [1, 2, 3, 4, 5, 6, 7, 8]
     }
   }
 }
@@ -170,8 +173,13 @@ export default {
             background: rgba(0, 0, 0, 0)
             &:hover
               background: rgba(0, 0, 0, 0.4)
-  .content
+  .img-content
     position: relative
+    background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497358555057&di=8481cdbcd6677dd7c6bc2128a4b41afd&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F13%2F60%2F10%2F58j58PICxWR_1024.jpg') center no-repeat
+    width: 100%
+    background-size: cover
+    height: 800px
+
     .bg
       width: 100%
       vertical-align: bottom
@@ -221,33 +229,37 @@ export default {
     &:first-child
       padding: 40px 10px 10px 10px
     .title
-      text-align: center
+      text-align: left
+      margin: 0 8%
+      padding-left: 34px
       .name
+        border-left: 4px solid #F1BD5B
+        padding-left: 10px
         display: inline-block
         font-size: 18px
         line-height: 20px
-        color: #666
+        color: #000
         position: relative
-        &::after
-          content: ''
-          display: block
-          position: absolute
-          width: 40px
-          height: 1px
-          background: #777
-          left: -60px
-          top: 50%
-          margin-top: -0.5px
-        &::before
-          content: ''
-          display: block
-          position: absolute
-          width: 40px
-          height: 1px
-          background: #777
-          right: -60px
-          top: 50%
-          margin-top: -0.5px
+        // &::after
+        //   content: ''
+        //   display: block
+        //   position: absolute
+        //   width: 40px
+        //   height: 1px
+        //   background: #777
+        //   left: -60px
+        //   top: 50%
+        //   margin-top: -0.5px
+        // &::before
+        //   content: ''
+        //   display: block
+        //   position: absolute
+        //   width: 40px
+        //   height: 1px
+        //   background: #777
+        //   right: -60px
+        //   top: 50%
+        //   margin-top: -0.5px
 
     .body
       margin: 10px 0px
