@@ -46,9 +46,9 @@
 </template>
 
 <script>
-import FoodList from '@/components/App/FoodList.vue'
-import Login from '@/components/App/Modal/Login'
-import Regist from '@/components/App/Modal/Regist'
+import FoodList from '@/components/FoodList.vue'
+import Login from '@/components/Modal/Login'
+import Regist from '@/components/Modal/Regist'
 
 export default {
   name: 'home',
