@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang="jade">
   #Mall.p-40
     .filter
       Input.fr(placeholder='搜索', icon="search")

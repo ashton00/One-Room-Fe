@@ -38,17 +38,11 @@
         .title
           .name 热门分类
         .furniture-kinds
-          .gird(v-for="item in furnitureKinds")
+          .gird(v-for="item in furnitureKinds" @click="toMall(item.param)")
             .gird-title {{ item.name }}
             .gird-img
               img(:src="item.img")
 
-      // .section
-      //   .title
-      //     .name 热门客厅家具
-      //   .body
-      //     FoodList(:data="hotLists", :linkFunc="linkTo")
-                
 </template>
 
 <script>
@@ -63,12 +57,12 @@ export default {
       keyword: '',
       navdown: false,
       furnitureKinds: [
-        { name: "卧室家具", img: require("../../assets/woshi.jpeg")},
-        { name: "客厅家具", img: require("../../assets/keting.jpeg")},
-        { name: "餐厅家具", img: require("../../assets/canting.jpeg")},
-        { name: "书房家具", img: require("../../assets/shufang.jpeg")},
-        { name: "家居软饰", img: require("../../assets/ruanshi.jpeg")},
-        { name: "办公家具", img: require("../../assets/bangong.jpeg")},
+        { name: "卧室家具", param: 'woshi', img: require("../../assets/woshi.jpeg")},
+        { name: "客厅家具", param: 'keting', img: require("../../assets/keting.jpeg")},
+        { name: "餐厅家具", param: 'canting', img: require("../../assets/canting.jpeg")},
+        { name: "书房家具", param: 'shufang', img: require("../../assets/shufang.jpeg")},
+        { name: "家居软饰", param: 'ruanshi', img: require("../../assets/ruanshi.jpeg")},
+        { name: "办公家具", param: 'bangong', img: require("../../assets/bangong.jpeg")},
       ]
     }
   },
@@ -92,6 +86,10 @@ export default {
     },
     linkTo (subject) {
       return '/detail'
+    },
+    toMall (subject) {
+      this.$router.push(`mall/${subject}`)
+      console.log(subject);
     }
   },
   components: {
