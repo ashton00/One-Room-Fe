@@ -18,7 +18,7 @@
             Radio(label="female") 女
             Radio(label="sec") 保密
         Form-item(label="联系电话", prop="phone")
-          Input.input(v-model="form.phone", placeholder="请填写您的联系")
+          Input.input(v-model="form.phone", placeholder="请填写您的联系方式")
         Form-item(label="个人简介", prop="summary")
           Input(v-model="form.summary", type="textarea", :autosize="{minRows: 4, maxRows: 10}", placeholder="请填写您的个人简介（选填）")
         Form-item
@@ -44,7 +44,7 @@ export default {
           { required: true, message: '昵称不能为空', trigger: 'blur' }
         ],
         phone: [
-          { required: true, message: '邮箱不能为空', trigger: 'blur' },
+          { required: true, message: '手机号不能为空', trigger: 'blur' },
           { validator: this.phoneValidator, trigger: 'blur' }
         ],
         gender: [
