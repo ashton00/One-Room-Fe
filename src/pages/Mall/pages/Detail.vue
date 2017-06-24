@@ -5,8 +5,11 @@
       Breadcrumb-item 家具商城
       Breadcrumb-item 家具筛选页
       Breadcrumb-item 当前家具详情页
-    .container.pt-70.tc
+    .container.pt-30.tc
       .left
+        div.collect.tl
+          Icon.mr-5(type='ios-heart-outline')
+          span 加入收藏
         .imgs
           img(:src='selectedImg')
           .small-imgs.ml-40
@@ -33,35 +36,37 @@
             span 收藏店铺  
       .right.ml-40.tl
         div
+          p KOPARDAL 科帕达双人铁艺床[1.8x2.0m]
+        div
           p.bold 款式
-          Button(type='ghost' size='small') 七成新
+          Button(type='ghost' size='small' @click='choose($event)') 七成新
           Button(type='ghost' size='small') 九成新
           Button(type='ghost' size='small') 全新
         div
           p.bold 
-            span 价格
-            span.ml-10.yellow ¥200/周
+            span.ib 价格
+            span.yellow ¥200/周
           Button(type='ghost' size='small') 1-3周
           Button(type='ghost' size='small') 1-5月
           Button(type='ghost' size='small') 6-12月
           Button(type='ghost' size='small') 1年以上
         div
-          strong 租期
+          strong.ib 租期
           Select(v-model='leaseTime', size='small', style='width:100px')
             Option(v-for='item in leaseTimes', :value='item', :key='item') {{ item }}
           |  周
         div
-          strong 押金
+          strong.ib 押金
           span ¥200
           span.ml-20.red 押金减免
           Icon(type="ios-information-outline").red
         div
-          strong 配送至
+          strong.ib 配送至
           Select(v-model='city', size='small', style='width:100px')
             Option(v-for='item in cityList', :value='item.value', :key='item') {{ item.label }}
           span  运费：¥40
         div
-          strong 件数
+          strong.ib 件数
           Input-number(:max='10', :min='1', v-model='value1' size="small")
           span.ml-10 库存30件
         div.mt-30
@@ -93,9 +98,10 @@
       Tab-pane(label='收费规则', name='rule')
         img.mt-20(src='../../../assets/chargingRules.png' width='100%')
       Tab-pane(label='家具评价', name='comment')
-        h2
+        h2.mb-20.mt-5
           | 好评率
           span.yellow.ml-15.rank 56%
+        .line
         .disc-filter.mt-20.mb-20
           span.active 全部评价(23)
           span 好评(23)
@@ -104,7 +110,7 @@
           span 追评(23)
           span 晒图(23)
         ul.disc
-          li.p-15
+          li(v-for='i in 10').p-15
             .user.fl
               img(src='../../../assets/Mall/detail/头像.png')
               p.tc username
@@ -112,19 +118,16 @@
               | *****
             .content.ml-80
               | test
-            .date.ml-80.tr
-              | 2017-6-3 18:39
-          li.p-15
-            .user.fl
-              img(src='../../../assets/Mall/detail/头像.png')
-              p.tc username
-            .star.ml-80
-              | *****
-            .content.ml-80
-              | test
-            .date.ml-80.tr
-              | 2017-6-3 18:39
-          
+            .buy-shoppings
+              span.fr.mt-60 2017-6-3 18:39
+              div
+                img.ml-14(src='../../../assets/Mall/detail/评价小图1.png')
+                img.ml-12(src='../../../assets/Mall/detail/评价小图2.png')
+              div.ml-77.mt-6
+                span 九成新
+                span.ml-12 按月租
+            
+        Page(:total='40' show-total show-elevator @on-change='changePage').mt-10
 </template>
 
 <script>
@@ -152,9 +155,16 @@ export default {
     }
   },
   methods: {
+    changePage(page) {
+      console.log(page)
+    },
     selectImg (index) {
       this.selectedIndex = index
       this.selectedImg = this.selectedImgs[this.selectedIndex]
+    },
+    choose($event) {
+      console.log($event)
+      $event.target.className
     }
   }
 }
@@ -166,6 +176,10 @@ export default {
       font-weight: bold
       font-size: 24px
       color: #f1bf50
+    .collect
+      font-size: 16px
+      width: 350px
+      margin-left: -60px
     .detail
       span
         width: 70px
@@ -197,10 +211,10 @@ export default {
           height: 80px
       .right
         min-height: 350px
+        .ib
+          width: 50px
         &>div
           margin-bottom: 15px
-          strong
-            margin-right: 10px
           .bold
             margin-bottom: 10px        
           .ivu-btn
