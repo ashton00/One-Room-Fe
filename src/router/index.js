@@ -35,6 +35,11 @@ let routes = [
     path: '/mall',
     name: 'mall',
     component: Mall
+  },  
+  {
+    path: '/mall/:furnitureKind',
+    name: 'mall',
+    component: Mall
   },
   {
     path: '/cart',

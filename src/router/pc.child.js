@@ -5,6 +5,7 @@ import Profile from '../pages/PC/components/profile.vue'
 import Address from '../pages/PC/components/address.vue'
 import Shop from '../pages/PC/components/collectShop.vue'
 import Furniture from '../pages/PC/components/collectFurniture.vue'
+import Security from '../pages/PC/components/security.vue'
 
 export default [
   {
@@ -38,5 +39,9 @@ export default [
   {
     path: 'shop',
     component: Shop
+  },
+  {
+    path: 'security',
+    component: Security
   }
 ]
