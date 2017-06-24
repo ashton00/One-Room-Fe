@@ -23,9 +23,9 @@
           .sub-menu 收藏的家具
         .menu
           .title 消息
-          .sub-menu 我的物流
-          .sub-menu 系统通知
-          .sub-menu 私信
+          router-link.sub-menu(to="/personalcenter/interflow") 我的物流
+          router-link.sub-menu(to="/personalcenter/notice") 系统通知
+          router-link.sub-menu(to="/personalcenter/letter") 私信
         .menu
           .title 账户设置
           router-link.sub-menu(to="/personalcenter/profile") 个人信息
