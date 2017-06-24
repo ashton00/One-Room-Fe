@@ -19,8 +19,8 @@
           .sub-menu 我的申报进度
         .menu
           .title 我的收藏
-          .sub-menu 收藏的店铺
-          .sub-menu 收藏的家具
+          router-link.sub-menu(to='/personalcenter/shop') 收藏的店铺
+          router-link.sub-menu(to='/personalcenter/furniture') 收藏的家具
         .menu
           .title 消息
           .sub-menu 我的物流
