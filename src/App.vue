@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import Navbar from './components/App/Nav'
-import Foot from './components/App/Footer'
-import RightBar from '@/components/App/RightBar'
+import Navbar from './components/Nav'
+import Foot from './components/Footer'
+import RightBar from '@/components/RightBar'
 
 export default {
   name: 'app',
