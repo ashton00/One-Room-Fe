@@ -3,6 +3,7 @@ import Order from '../pages/PC/components/order.vue'
 import Return from '../pages/PC/components/return.vue'
 import Profile from '../pages/PC/components/profile.vue'
 import Address from '../pages/PC/components/address.vue'
+import Security from '../pages/PC/components/security.vue'
 
 export default [
   {
@@ -28,5 +29,9 @@ export default [
   {
     path: 'address',
     component: Address
+  },
+  {
+    path: 'security',
+    component: Security
   }
 ]

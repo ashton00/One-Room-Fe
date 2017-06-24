@@ -1,5 +1,5 @@
 <template lang="jade">
-  .order
+  .return
     .title 我的归还
     Menus(:datas="menus")
     OrderTable(:datas="datas")
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  .order
+  .return
     margin-right: 80px
     .title
       font-weight: bold

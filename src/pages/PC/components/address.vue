@@ -1,5 +1,5 @@
 <template lang="jade">
-  .profile
+  .address
     .title 管理收货地址
     .table
       Table(border, :columns="columns", :data="datas")
@@ -237,7 +237,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  .profile
+  .address
     margin-right: 80px
     .title
       font-weight: bold

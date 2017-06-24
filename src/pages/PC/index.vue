@@ -30,7 +30,7 @@
           .title 账户设置
           router-link.sub-menu(to="/personalcenter/profile") 个人信息
           router-link.sub-menu(to="/personalcenter/address") 管理收货地址
-          .sub-menu 安全设置
+          router-link.sub-menu(to="/personalcenter/security") 安全设置
         .menu
           .title 信用管理
           .sub-menu 实名认证
