@@ -3,7 +3,6 @@ Menu(mode='horizontal' theme='light' active-name='1' class='navbar').tc
   .logo 一室LOGO
   button(v-for="(bar, index) in barList",
   :key="index", @click="changeUrl(bar, index)", :class="{'active': $route.path == bar.url }") {{ bar.title }}
-
   div(class='login')
     a(@click='showLoginModal') 登录
     a(target="_blank" href="/register" @click='showRegistModal') 注册
@@ -24,7 +23,26 @@ export default {
         url: '/home'
       }, {
         title: '家具商城',
-        url: '/mall'
+        url: '/mall',
+        subMenus: [{
+          url: '/mall?type=0',
+          title: '卧室家具'
+        }, {
+          url: '/mall?type=1',
+          title: '客厅家具'
+        }, {
+          url: '/mall?type=2',
+          title: '餐厅家具'
+        }, {
+          url: '/mall?type=3',
+          title: '书房家具'
+        }, {
+          url: '/mall?type=4',
+          title: '家具软饰'
+        }, {
+          url: '/mall?type=5',
+          title: '办公家具'
+        }]
       }, {
         title: '帮助中心',
         url: '/help'
