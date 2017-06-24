@@ -1,6 +1,6 @@
 <template lang="jade">
   .order
-    .title 我的订单
+    .title 我的归还
     Menus(:datas="menus")
     OrderTable(:datas="datas")
 </template>
