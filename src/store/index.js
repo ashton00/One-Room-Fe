@@ -7,12 +7,14 @@ import Vuex from 'vuex'
 import Vue from 'vue'
 
 import modal from './modules/modal'
+import user from './user/index.js'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-    modal: modal
+    modal: modal,
+    user: user
   }
 })
 

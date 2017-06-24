@@ -1,4 +1,4 @@
-<template lang='jade'>
+<template lang="jade">
 div.home.tc
   div.main
     RightBar
