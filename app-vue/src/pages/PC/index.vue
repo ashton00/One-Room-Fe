@@ -100,6 +100,9 @@ export default {
             &:hover
               text-decoration: underline
               cursor: pointer
+            &.router-link-active
+              color: #ff9900
+              font-weight: bold
       .content
         margin-left: 260px
         padding: 20px 0px
