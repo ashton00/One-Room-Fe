@@ -6,6 +6,9 @@ import Address from '../pages/PC/components/address.vue'
 import Shop from '../pages/PC/components/collectShop.vue'
 import Furniture from '../pages/PC/components/collectFurniture.vue'
 import Security from '../pages/PC/components/security.vue'
+import Interflow from '../pages/PC/components/interflow.vue'
+import Letter from '../pages/PC/components/letter.vue'
+import Notice from '../pages/PC/components/notice.vue'
 
 export default [
   {
@@ -43,5 +46,17 @@ export default [
   {
     path: 'security',
     component: Security
+  },
+  {
+      path: 'interflow',
+    component: Interflow
+  },
+  {
+    path: 'letter',
+    component: Letter
+  },
+  {
+    path: 'notice',
+    component: Notice
   }
 ]
