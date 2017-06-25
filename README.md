@@ -2,15 +2,16 @@
 
 > 一室团队的代码使用前后端分离，要部署的主要为前端，服务端环境
 
-### 前端安装
-
  `环境要求`:  nodejs 版本要求:  v6 及以上均可。
- 
 
+### 前端安装
+ 
 ####  开发运行方法
 
 ``` bash
 git clone https://github.com/crystalGS/One-Room-Fe.git
+
+cd app-vue
 
 # 安装依赖
 npm install
@@ -22,7 +23,9 @@ npm run dev  或者 npm start
 #### 部署至生产环境方法
 
 ``` bash
-https://github.com/crystalGS/One-Room-Fe.git
+git clone https://github.com/crystalGS/One-Room-Fe.git
+
+cd app-vue
 
 # 安装依赖
 npm install
@@ -54,7 +57,9 @@ server {
 ### 服务端安装
 #### 开发运行方法
 ```
-git clone https://github.com/crystalGS/One-Room-Se.git
+git clone https://github.com/crystalGS/One-Room-Fe.git
+
+cd app-node  
 
 # 安装依赖
 npm install
