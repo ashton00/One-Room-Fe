@@ -1,36 +1,77 @@
-# one-room-fs
+##  安装包与《安装部署说明》
 
-### 项目地址 
-[http://returngirl.cn:8888](http://returngirl.cn:8888)
+> 一室团队的代码使用前后端分离，要部署的主要为前端，服务端环境
 
+ `环境要求`:  nodejs 版本要求:  v6 及以上均可。
 
-> 项目介绍
-## 远程API调用
-在config/index.js里的proxyTable配置代理请求，就可以将本地的API请求转发到远程服务器，仅限开发的时候使用 
-
-## Build Setup
+### 前端安装
+ 
+####  开发运行方法
 
 ``` bash
-# install dependencies
+git clone https://github.com/crystalGS/One-Room-Fe.git
+
+cd app-vue
+
+# 安装依赖
 npm install
 
-# serve with hot reload at localhost:8080
+# 监听 localhost:8080
 npm run dev  或者 npm start
 
-# build for production with minification
+```
+#### 部署至生产环境方法
+
+``` bash
+git clone https://github.com/crystalGS/One-Room-Fe.git
+
+cd app-vue
+
+# 安装依赖
+npm install
+
+# 监听 localhost:8080
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
+```
+将生成的dist文件夹目录拷贝至服务器
 
-# run unit tests
-npm run unit
+配置nginx监听：以下是一种方式
 
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+```
+server {
+    listen 8000;
+    server_name returngirl.cn;
+    location / {
+       root /home/ubuntu/www/one-room-fe/dist;
+       index index.html index.htm;
+	   try_files $uri $uri/ /index.html;
+    }
+    location /api {
+       proxy_pass http://server-end/api;
+    }
+    
+}
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### 服务端安装
+#### 开发运行方法
+```
+git clone https://github.com/crystalGS/One-Room-Fe.git
+
+cd app-node  
+
+# 安装依赖
+npm install
+
+# 启动服务端程序
+node index.js
+```
+#### 部署至生产环境
+
+服务端部署至服务器
+
+使用pm2作为守护进程
+```
+pm2 start index.js
+```
