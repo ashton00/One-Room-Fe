@@ -1,10 +1,20 @@
+import { User } from '../models/index.js'
+
 const user = {
   state: {
-    count: 0
+    loginForm: {
+      phone: '',
+      password: ''
+    }
   },
   mutations: {
     increment (state, payload) {
       state.count = state.count + payload.count
+    },
+    updateLoginForm (state, payload) {
+      for (let key in payload) {
+        state[key] = payload[key]
+      }
     }
   },
   getters: {
@@ -18,6 +28,10 @@ const user = {
         context.state.count += payload.count
         context.commit('increment', payload)
       }, 1000)
+    },
+
+    login ({ commit, state }) {
+      return User.login(state.loginForm)
     }
   }
 }

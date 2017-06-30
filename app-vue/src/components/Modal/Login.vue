@@ -1,12 +1,12 @@
 <template lang="jade">
-Modal(v-model='isLogin' @on-cancel='cancel' width='380' ref="loginModel", :footerHide="footerHide")
+Modal(v-model='isLogin' @on-cancel='cancel' width='380', :footerHide="footerHide")
   .login-page
   
     .form
       form.login-form
-        input(type='text', placeholder='手机号')
-        input(type='password', placeholder='密码')
-        button 登录
+        input(type='text', v-model="phone", placeholder='手机号')
+        input(type='password', v-model="password", placeholder='密码')
+        button(@click.prevent="login") 登录
         p.message
           | 还未注册 ?
           a(href='/register' target="_blank") 创建一室账号
@@ -14,13 +14,12 @@ Modal(v-model='isLogin' @on-cancel='cancel' width='380' ref="loginModel", :foote
 </template>
 
 <script>
+
 export default {
   name: 'login',
   data () {
     return {
       remember: false,
-      username: '',
-      password: '',
       isLoginStatus: false,
       footerHide: true
     }
@@ -28,17 +27,40 @@ export default {
   computed: {
     isLogin () {
       return this.$store.state.modal.isLogin
+    },
+    phone: {
+      get () {
+        return this.$store.state.user.loginForm.phone
+      },
+      set (value) {
+        this.$store.commit('updateLoginForm', { phone: value })
+      }
+    },
+    password: {
+      get () {
+        return this.$store.state.user.loginForm.password
+      },
+      set (value) {
+        this.$store.commit('updateLoginForm', { password: value })
+      }
     }
   },
   methods: {
     cancel () {
       this.$store.commit('toggleLogin')
+    },
+    login () {
+      this.$store.dispatch('login').then(res => {
+        this.$Message.info('成功登陆')
+        this.cancel()
+      }).catch(this.$Message.error)
     }
   }
 }
 </script>
 
 <style lang="sass" scoped>
+
 span.ivu-checkbox
   margin-right: 10px
 

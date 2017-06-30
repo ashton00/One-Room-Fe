@@ -7,7 +7,7 @@ import Vuex from 'vuex'
 import Vue from 'vue'
 
 import modal from './modules/modal'
-import user from './user/index.js'
+import user from './modules/user'
 
 Vue.use(Vuex)
 

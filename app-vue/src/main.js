@@ -6,10 +6,12 @@ import 'iview/dist/styles/iview.css'    // 使用 CSS
 import App from './App'
 import router from './router'
 import store from './store/index'
+import VueResource from 'vue-resource'
 
 /* 引入库 */
 Vue.config.productionTip = false
 Vue.use(iView)
+Vue.use(VueResource)
 
 /* eslint-disable no-new */
 new Vue({
