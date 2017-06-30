@@ -93,7 +93,8 @@ body {
 
 .generate-base(100);
 
-.generate-base(@n, @i: 1, @temp: 1px) when (@i =< @n) {
+.generate-base(@n, @i: 1) when (@i =< @n) {
+  @temp: unit(@i, px);
   .p-@{i} {
     padding: @temp
   }
@@ -124,16 +125,17 @@ body {
   .mt-@{i} {
     margin-top: @temp
   }
-  .generate-base(@n, (@i + 1), (@temp + 1px));
+  .generate-base(@n, (@i + 1));
 }
 
-.generate-font(30, 12, 12px);
+.generate-font(30, 12);
 
-.generate-font(@n, @i: 1, @temp: 1px) when (@i =< @n) {
+.generate-font(@n, @i: 1) when (@i =< @n) {
+  @temp: unit(@i, px);
   .fs-@{i} {
     font-size: @temp
   }
-  .generate-font(@n, (@i + 1), (@temp + 1px));
+  .generate-font(@n, (@i + 1));
 }
 
 .bold {

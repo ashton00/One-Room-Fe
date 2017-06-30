@@ -1,5 +1,5 @@
 <template lang="jade">
-Modal(v-model='isLogin' @on-cancel='cancel' width='380')
+Modal(v-model='isLogin' @on-cancel='cancel' width='380' ref="loginModel", :footerHide="footerHide")
   .login-page
   
     .form
@@ -10,8 +10,6 @@ Modal(v-model='isLogin' @on-cancel='cancel' width='380')
         p.message
           | 还未注册 ?
           a(href='/register' target="_blank") 创建一室账号
-  
-  div(slot='footer')
 
 </template>
 
@@ -23,7 +21,8 @@ export default {
       remember: false,
       username: '',
       password: '',
-      isLoginStatus: false
+      isLoginStatus: false,
+      footerHide: true
     }
   },
   computed: {
